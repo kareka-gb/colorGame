@@ -2,7 +2,7 @@ body {
   background-color: #232323;
 }
 
-h1, p {
+h1 {
   color: white;
 }
 
@@ -17,4 +17,10 @@ h1, p {
 .container {
   width: 650px;
   margin: 20px auto;
+}
+
+.stripe {
+  height: 30px;
+  background-color: white;
+  text-align: center;
 }
