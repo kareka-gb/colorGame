@@ -42,8 +42,10 @@ function Reset(){
   prompt.textContent = "";
 }
 
+//maximum number of maxSquares
+var maxSquares = 6;
 //number of squares
-var numSquares = 6;
+var numSquares = maxSquares;
 //picking numsquares number of random colors
 var colors = randomColors(numSquares);
 //selecting all squares
@@ -57,9 +59,8 @@ var prompt = document.querySelector("#prompt");
 var h1 = document.querySelector("h1");
 //reset button
 var reset = document.getElementById("reset");
-//easy and hard buttons
-var easybtn = document.getElementById("easybtn");
-var hardbtn = document.getElementById("hardbtn");
+//game mode easy or hard
+var mode = document.querySelectorAll(".mode");
 
 
 //Assigning each color of colors array to squares
@@ -68,25 +69,28 @@ assignColors();
 //reset button
 reset.addEventListener("click", Reset);
 
-easybtn.addEventListener("click", function(){
-  easybtn.classList.add("selected");
-  hardbtn.classList.remove("selected");
-  numSquares = 3;
-  Reset();
-  for(var i=numSquares; i<6; i++){
-    squares[i].style.display = "none";
-  }
-});
-
-hardbtn.addEventListener("click", function(){
-  easybtn.classList.remove("selected");
-  hardbtn.classList.add("selected");
-  numSquares = 6;
-  Reset();
-  for(var i=3; i<numSquares; i++){
-    squares[i].style.display = "block";
-  }
-});
+//mode
+for(var i=0; i<mode.length; i++){
+  mode[i].addEventListener("click", function(){
+    mode[0].classList.remove("selected");
+    mode[1].classList.remove("selected");
+    this.classList.add("selected");
+    if(this.textContent == "Easy"){
+      numSquares = 3;
+    } else {
+      numSquares = 6;
+    }
+    Reset();
+    //DIsplaying numSquares number of squares
+    for(var i=0; i<numSquares; i++){
+      squares[i].style.display = "block";
+    }
+    //removing other squares
+    for(var i=numSquares; i<maxSquares; i++){
+      squares[i].style.display = "none";
+    }
+  });
+}
 
 for(var i=0; i<squares.length; i++){
   //checking whether chosen color is the same as that of selected color
