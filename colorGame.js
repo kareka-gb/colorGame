@@ -35,7 +35,7 @@ function Reset(){
   //change colors of squares
   assignColors();
   //change background color of h1
-  h1.style.backgroundColor = "#232323";
+  h1.style.backgroundColor = "rgb(8, 195, 255)";
   //change reset text back to New Colors
   reset.textContent = "New Colors";
   //change content of prompt
@@ -93,15 +93,17 @@ for(var i=0; i<squares.length; i++){
   squares[i].addEventListener("click", function(){
     var chosenColor = this.style.backgroundColor;
     if(selectedColor.textContent === chosenColor){
-      prompt.textContent = "CORRECT!";
+      prompt.textContent = "Correct!";
       for(var j=0; j<squares.length; j++){
         squares[j].style.backgroundColor = chosenColor;
+        squares[j].style.boxShadow = "-5px 5px 5px white";
       }
       h1.style.backgroundColor = chosenColor;
       reset.textContent = "Play Again!";
     } else {
       prompt.textContent = "Try Again";
       this.style.backgroundColor = "#232323";
+      this.style.boxShadow = "none";
     }
   });
 
