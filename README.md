@@ -2,4 +2,4 @@
 
 Just a color guessing game created to familiarize myself with javascript
 
-Check: https://kkarthikr002.github.io/colorGame/
+Check: https://kareka-gb.github.io/colorGame/colorGame.html
